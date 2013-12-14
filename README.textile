@@ -1,0 +1,74 @@
+h1. Jekyll
+
+By Tom Preston-Werner, Nick Quaranto, and many awesome contributors!
+
+Jekyll is a simple, blog aware, static site generator. It takes a template directory (representing the raw form of a website), runs it through Textile or Markdown and Liquid converters, and spits out a complete, static website suitable for serving with Apache or your favorite web server. This is also the engine behind "GitHub Pages":http://pages.github.com, which you can use to host your project's page or blog right here from GitHub.
+
+h1. Extension Overview
+
+This extension introduces a Table of Contents which can easily be added to a post. This feature only works with textile currently (as the ToC is generated to textile).
+
+h1. Usage
+
+The ToC works by reading the headers on a post and saving them with hierarchy.
+
+Example:
+
+@h1. Introduction@
+@h2. Overview@
+@h2. Technical Details@
+@h3. Login System@
+@h1. Development@
+@h2. Duration@
+@h1. Conclusion@
+
+Gets transformed into the following hierarchy:
+
+* Introduction
+** Overview
+** Technical Detail
+*** Login System
+* Development
+** Duration
+* Conclusion
+
+*WARNING* So this hierarchy can work the titles must start with the lowest index which shall be used (e.g. if @h3.@ is used, @h1.@ or @h2.@ cannot be used within that post).
+
+h2. Adding ToC to a post
+
+To add this feature to a post you will just need to add the following token to the desired post, at the correct position of the article:
+
+@<!-- TOC -->@
+
+h2. Customizing ToC Appearance
+
+To see how to customize the appearance let's look at the following example:
+
+```html
+<div class="standard_div"><div class="toc">
+<p id="toc_title">Article contents</p>
+<ul>
+	<li class="depth_1"><a href="#Defining_a_Recursive_Function" class="toc_link">Defining a Recursive Function</a>
+	<ul>
+		<li class="depth_2"><a href="#Identifying_the_extreme_cases" class="toc_link">Identifying the extreme cases</a></li>
+		<li class="depth_2"><a href="#Identifying_general_cases" class="toc_link">Identifying general cases</a></li>
+		<li class="depth_2"><a href="#Merging_it_all" class="toc_link">Merging it all</a></li>
+	</ul></li>
+	<li class="depth_1"><a href="#Converting_Recursive_Function_to_Iterative" class="toc_link">Converting Recursive Function to Iterative</a>
+	<ul>
+		<li class="depth_2"><a href="#Back_to_Fibonacci" class="toc_link">Back to Fibonacci</a></li>
+	</ul></li>
+</ul>
+</div>
+```
+
+To customize the ToC, you can use the following CSS rules:
+
+.toc {}
+.toc_link {}
+#toc_title {}
+.depth_1 {}
+.depth_2 {}
+.depth_3 {}
+.depth_4 {}
+.depth_5 {}
