@@ -49,7 +49,7 @@ h2. Customizing ToC Appearance
 
 To see how to customize the appearance let's look at the following example:
 
-```html
+<pre><code>
 <div class="standard_div"><div class="toc">
 <p id="toc_title">Article contents</p>
 <ul>
@@ -65,7 +65,7 @@ To see how to customize the appearance let's look at the following example:
 	</ul></li>
 </ul>
 </div>
-```
+</code></pre>
 
 To customize the ToC, you can use the following CSS rules:
 
